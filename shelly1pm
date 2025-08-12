@@ -1,0 +1,34 @@
+#!/usr/bin/sh
+# -*- sh -*-
+
+set -e
+
+#
+case $1 in 
+    config)
+        cat <<'EOM'
+graph_title Shelly1PM power and temperature
+graph_category Power
+graph_vlabel Power and Temperature
+shelly1pmP.label Power (W)
+shelly1pmP.info Power usage through the Shelly 1PM
+shelly1pmT.label Temperature (F)
+shelly1pmT.info Temperature reading at the Shelly 1PM
+EOM
+    exit 0;;
+esac
+
+# you need curl and jq installed for this. I think _most_ distros have it. 
+#
+# WARNING: the newer shelly units have a different output, this will only work
+# with early Shelly 1PM units, like firmware 20230913-113709/v1.14.0-gcb84623"
+#
+# Grab the power output from Shelly:
+#
+printf "shelly1pmP.value " ; curl -s http://username:password@192.168.169.247/status   |jq -r '.meters[].power'
+#
+#
+# Grab the Temperature, in F, from Shelly, first row is in C, second in F.
+# This is using the new "ss" or Socket Statistics, which is replacing netstat. 
+printf "shelly1pmT.value " ; curl -s http://username:password@192.168.169.247/status   |jq -r '.tmp[]' |sed -n '2 p'
+

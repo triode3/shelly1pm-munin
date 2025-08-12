@@ -29,6 +29,5 @@ printf "shelly1pmP.value " ; curl -s http://username:password@192.168.169.247/st
 #
 #
 # Grab the Temperature, in F, from Shelly, first row is in C, second in F.
-# This is using the new "ss" or Socket Statistics, which is replacing netstat. 
 printf "shelly1pmT.value " ; curl -s http://username:password@192.168.169.247/status   |jq -r '.tmp[]' |sed -n '2 p'
 

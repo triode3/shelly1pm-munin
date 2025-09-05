@@ -9,7 +9,7 @@ This readme assumes you know what [Munin](https://munin-monitoring.org/) is all 
 
 Here is an exmaple output from munin monitoring power and temperature:
 
-![screenshot of Shelly1PM](https://github.com/triode3/)
+![screenshot of Shelly1PM](https://github.com/triode3/shelly1pm-munin/blob/main/images/shelly1pm.png)
 
 
 # Why did I make this?

@@ -11,6 +11,7 @@ Here is an exmaple output from munin monitoring power and temperature:
 
 ![screenshot of Shelly1PM](https://github.com/triode3/shelly1pm-munin/blob/main/images/shelly1pm.png)
 
+Note that the shelly is set to come on every day around 0530-0700, and then from 1900-2145. The temperature rises due to the power through shelly and it being in a small enclosure. Also, the temperature of the unit does swing wildly because it is in an unconditioned space (this is just to point out that the large variations in temperature are expected in this particular setup). 
 
 # Why did I make this?
 
